@@ -1,9 +1,11 @@
 document.getElementById('error-message').style.display = "none";
+
+// Search Area 
 const searchBook = () => {
     const searchBookInput = document.getElementById('search-field');
     const searchText = searchBookInput.value;
     searchBookInput.value = "";
-
+    // API DATA RESPONSE 
     if (searchText == "") {
         displayError()
     }
@@ -19,6 +21,7 @@ const searchBook = () => {
             );
     }
 }
+// TOtal Book Findings 
 const displaySearchTotal = item => {
     if (item === 0) {
         // alert('something wrong')
@@ -31,6 +34,8 @@ const displaySearchTotal = item => {
     }
 
 }
+
+// Display Books 
 const displaySearch = books => {
     const searchResult = document.getElementById('search-result');
 
@@ -43,14 +48,14 @@ const displaySearch = books => {
                 <img src="https://covers.openlibrary.org/b/id/${book.cover_i ? book.cover_i : "N/A"}-M.jpg" class="card-img-top bg-white" alt="Images is not Available">
                 <div class="card-body">
                     <h4 class="card-title">Book Title:${book.title}</h4>
-                    <h5><small>Author:${book.author_name[0] ? book.author_name[0] : book.author_name}</small></h5>
+                    <h5><small>Author:${book.author_name}</small></h5>
                     <small>First published On:${book.first_publish_year}</small>          
                 </div>
             </div>`;
         searchResult.appendChild(div);
     })
 }
-
+// Error Handle 
 const displayError = () => {
     document.getElementById('error-message').style.display = "block";
     document.getElementById('search-result').textContent = "";
