@@ -17,7 +17,7 @@ const searchBook = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                displaySearch11(data.numFound);
+                displaySearchTotal(data.numFound);
                 displaySearch(data.docs)
             }
             );
@@ -28,7 +28,7 @@ const searchBook = () => {
 
 }
 
-const displaySearch11 = item => {
+const displaySearchTotal = item => {
     document.getElementById("find-message").innerText = `Total book Found  ${item}`
 }
 const displaySearch = books => {
