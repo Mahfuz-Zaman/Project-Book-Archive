@@ -11,7 +11,6 @@ const searchBook = () => {
 
     else {
         document.getElementById('error-message').style.display = "none";
-        //const proxy = "https://cors-anywhere.herokuapp.com/"
         const url = `https://openlibrary.org/search.json?q=${searchText}`
 
         fetch(url)
